@@ -1,6 +1,5 @@
 require('./manager/mongodb.js');
 const express = require('express');
-const auth = require('./auth.config.js');
 const app = express();
 const path = require('path');
 
@@ -19,5 +18,7 @@ app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('api/sauces', sauceRoutes);
+
+app.use('api/user', userRoutes);
 
 module.exports = app;
