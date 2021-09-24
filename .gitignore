@@ -1,2 +1,4 @@
 node_modules 
 auth.config.js
+.env
+images
