@@ -32,4 +32,11 @@ app.use('/api/sauces', sauceRoutes);
 
 app.use('/api/auth', userRoutes);
 
+// TODO meilleure affichage des erreurs
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({
+    error: err.stack,
+  });
+});
 module.exports = app;

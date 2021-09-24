@@ -17,8 +17,8 @@ exports.signup = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
 };
-
-
+// TODO donne au ACCES_TOKEN_SECRET une valeur par defaut ou empeche le demarrage du serveur avec un message
+// TODO utilise une meilleur gestion d'erreurs tu peut executer next(error) pour passer au middleware de gestion d'erreurs
 exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {

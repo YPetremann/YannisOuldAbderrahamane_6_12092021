@@ -5,8 +5,10 @@ exports.createSauce = (req, res, next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     console.log(req.body.userId);
     const sauce = new Sauce({
-        ...JSON.sauceObject,
-        imageURL: `${req.protocol}:/${req.get('host')}/images/${req.file.filename}`,
+        // TODO Fait attention aux objet que tu utilise
+        ...sauceObject,
+        // TDOD fait attention a la case
+        imageUrl: `${req.protocol}:/${req.get('host')}/images/${req.file.filename}`,
     });
 
     sauce.save()
@@ -40,12 +42,14 @@ exports.deleteSauce = (req, res, next) => {
 
 */
 exports.getAllSauces = (req, res, next) => {
-    sauce.find()
+    // TDOD fait attention a la case
+    Sauce.find()
         .then(sauces => res.status(200).json(sauces))
         .catch(error => res.status(400).json({ error }));
 };
 exports.getOneSauce = (req, res, next) => {
-    sauce.findOneAndRemove({ _id: req.params.id })
+    // TDOD fait attention a la case
+    Sauce.findOneAndRemove({ _id: req.params.id })
         .then(sauce => res.status(200).json(sauce))
         .catch(error => res.status(400).json({ error }));
 };

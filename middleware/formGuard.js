@@ -1,7 +1,7 @@
 module.exports = (req, res, next) => {
     try {
-        req.reqdata.userID = req.body.userId;
-        if (req.body.userId !== req.data.userId) {
+        // TODO c'est ici que tu ne fait que verifier que le userId est bien defini a la valeur dans le body
+        if (req.reqdata.userId !== req.body.userId) {
             throw `Invalide user ID`;
         } else {
             next();
